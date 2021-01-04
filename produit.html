@@ -15,33 +15,31 @@
     
 
     <header class="containerHeader">
-        <img class="logoHeader" src="./logo.png">
+        <a href="./index.html"><img class="logoHeader" src="./logo.png"></a>
         <nav class= navBar>
             <li class="cart"><a href="#" class="fas fa-shopping-cart cartt"></a></li>
         </nav>
     </header>
 
 
+    <section class='productsBox'>
+        <figure class="productsBox__imgWrap" >
+            <img id='imgUrlAdapt' class="productsBox__imgWrap--img">
+        </figure>
+        <div>
+            <h2 id='nameAdapt' class="productsBoxCaption__elem--title"></h2>
+            <p id='descriptionAdapt'></p>
+            <p id='priceAadapt'></p>
+            <label for="lentilles">Choisissez un type de lentille:</label>
+            <select name="lentilles" >
+            <option value="lentillesAdapt1"></option>
+            <option value="lentillesAdapt1"></option>
+            <option value="lentillesAdapt1"></option>
+            </select>
+        </div>
+    </section>
 
-
-<section>
-    <figure>
-        <img id='imgUrlAdapt'>
-    </figure>
-    <div>
-        <h2 id='nameAdapt'></h2>
-        <p id='descriptionAdapt'></p>
-        <p id='priceAadapt'></p>
-        <label for="lentilles">Choisissez un type de lentille:</label>
-        <select name="lentilles" >
-          <option value="lentillesAdapt1"></option>
-          <option value="lentillesAdapt1"></option>
-          <option value="lentillesAdapt1"></option>
-s        </select>
-    </div>
-</section>
-
-    
+<script defer src="./JS/produits.js"></script>
 
 
 <!-- 

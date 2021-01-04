@@ -12,62 +12,7 @@ body {
     size: 100%;
   }
   
-  .btn__order {
-    border-radius: 2rem;
-    padding: 1rem 1.3rem;
-    color: white;
-    border-style: none;
-    background: linear-gradient(351deg, #a159d9 35%, #ff79d4 100%);
-    font-family: "roboto";
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin-bottom: 3.4rem;
-    box-shadow: 1px 1px 7px -3px #000000;
-    border: none;
-    outline: none;
-  }
-  
-  .btn__order:hover {
-    background: linear-gradient(351deg, #a565d6 35%, #f882d3 100%);
-    box-shadow: 1px 2px 8px -2px #000000;
-  }
-  
-  .heart {
-    font-size: 1.4rem;
-    position: absolute;
-    left: -3rem;
-    z-index: 3;
-    opacity: 0;
-  }
-  
-  .heartBorder {
-    position: absolute;
-    font-size: 1.4rem;
-    left: -3rem;
-    z-index: 4;
-  }
-  
-  .heartBorder:hover {
-    opacity: 0;
-  }
-  
-  .heartBorder:hover + .heart {
-    opacity: 1;
-    display: block;
-    background: -webkit-linear-gradient(#9356DC, #FF79DA);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: 0.3s fillColor ease-in;
-  }
-  
-  @keyframes fillColor {
-    0% {
-      opacity: 20%;
-    }
-    100% {
-      opacity: 100%;
-    }
-  }
+
   .containerHeader {
     padding: 0rem 1rem;
     display: flex;
@@ -93,11 +38,24 @@ body {
   }
   
   li {
+      display: flex;
+      list-style-type: none;
+      padding: 8px 10px 8px;
+      margin: 8px 10px 8px;
+      width: 30%;
+    
+  }
+  article {
     display: flex;
     list-style-type: none;
-    padding: 8px 18px 8px;
-    margin: 8px 18px 8px;
+    padding: 8px 10px 8px;
+    margin: 8px 10px 8px;
     width: 30%;
+  }
+  
+  .cartNumber{
+    margin: 0;
+    padding: 0;
   }
   
   .cart:hover .cartt {
@@ -107,83 +65,35 @@ body {
   .product:hover {
     color: blueviolet;
   }
-  
-  .fleche {
-    position: absolute;
-    left: 40%;
-    font-size: 1.1rem;
-    padding-top: 1.5rem;
-    font-size: 1.5rem;
-  }
-  
-  .containerCenter {
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-  }
-  
+
   .background {
     background-color: #F5F5F5;
   }
   
-  .products {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 3rem 1rem;
-    padding: 3rem 1rem 4rem 1rem;
-    background-color: #F5F5F5;
-  }
-  .products__title {
-    margin: 0;
-    font-size: 1.9rem;
-  }
-  .products .productsBox {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 1rem 1rem 1rem 1rem;
-    box-shadow: 0 0 16px #0000002e;
-    max-width: 375px;
-  }
-  .products .productsBox__imgWrap {
-    position: relative;
-    padding: 0;
-    margin: 0;
-  }
-  .products .productsBox__imgWrap--img {
-    object-fit: cover;
-    border-radius: 1rem 1rem 0 0;
-    width: 100%;
-  }
-  .products .productsBox .productsBoxCaption {
-    display: flex;
-    padding: 5px 0 5px 5px;
-    justify-content: center;
-    align-self: center;
-  }
-  .products .productsBox .productsBoxCaption__elem {
-    padding: 10px;
-    line-height: 1.4rem;
-  }
-  .products .productsBox .productsBoxCaption__elem--title {
-    margin: 0;
-    font-size: 1.1rem;
-  }
+.bigContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cameraImg {
+
+  box-sizing: content-box;
+  height: 20rem;
+  width: 25rem;
+}
+
+.containerArticle {
+  display: flex;
+}
+
+.containerBlocCamera{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
   
-  @media screen and (min-width: 768px) {
-    .grid {
-      display: grid;
-      row-gap: 4rem;
-      column-gap: 4rem;
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .grid .products__title {
-      grid-column: -1/1;
-      font-size: 1.9rem;
-    }
-  }
   .footer {
     background-color: #F3E9F1;
     flex-direction: column;
@@ -200,7 +110,6 @@ body {
     display: flex;
     flex-direction: column;
     line-height: 0.9rem;
-    margin-bottom: 2rem;
   }
   .footerContainer__box--text {
     margin: 0.3rem;
@@ -220,3 +129,10 @@ body {
     }
   }
   
+.footlogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
