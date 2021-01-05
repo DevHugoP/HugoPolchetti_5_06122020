@@ -10,6 +10,7 @@ body {
   
   html {
     size: 100%;
+    font-family: 'Roboto';
   }
   
 
@@ -73,26 +74,83 @@ body {
 .bigContainer {
   display: flex;
   flex-wrap: wrap;
+  padding: 2rem 1rem;
+  padding: 2rem 1rem 3rem 1rem;
+  background-color: #F5F5F5;
 }
-
-.cameraImg {
-
-  box-sizing: content-box;
-  height: 20rem;
-  width: 25rem;
+.fondGris {
+  background-color: #F5F5F5;
+  margin: 0;
 }
-
-.containerArticle {
+.bigTitle {
+  margin: 0;
+  background-color: #F5F5F5;
   display: flex;
+  padding: 2rem 3rem;
+}
+.cameraImg {
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  width: 100%;
+  object-position: bottom;
+}
+
+.underPic {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+}
+.prixCamera {
+  margin-right: 1.5rem;
 }
 
 .containerBlocCamera{
   display: flex;
   flex-direction: column;
+  background-color: white;
+  border-radius: 1rem 1rem 1rem 1rem;
+  box-shadow: 0 0 16px #0000002e;
+  max-width: 375px;
+}
+
+.titreCamera {
+  padding-left: 2rem;
+}
+
+
+.formulaire{
+  padding: 3rem;
+}
+
+.boxPanier {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.panierContainer{
+  display: flex;
+  flex-direction: column;
+}
+.panierTitle {
+  font-size: 1.5rem;
+}
+.itemContainer{
+  width: 600px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.cellule {
+  width: 30%;
 }
 
 
 
+
+
+/* 
+//  FOOTER //  */
   
   .footer {
     background-color: #F3E9F1;

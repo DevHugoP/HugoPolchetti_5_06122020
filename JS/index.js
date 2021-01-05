@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
         .then(resp => resp.json())
         .then(data => pageAcceuil(data))
       }
-      function pageAcceuil(data) {  //faire une loop dans le tableau json
-          for (let q of data) {
+      function pageAcceuil(data) { 
+            console.log(data);
+
+          for (let q of data) { //faire une loop dans le tableau json
 
     //Chercher la div qui contiendra tout le contenu
           const bigContainer  = document.querySelector('.bigContainer');
@@ -16,23 +18,30 @@ document.addEventListener('DOMContentLoaded', ()=>{
           const blocCamera = document.createElement('a');
           const imageBoite = document.createElement ('img');
           const titreCamera = document.createElement('h3');
+          const prixCamera = document.createElement('p');
+          const underPic = document.createElement ('div');
+          
 
     //Ajouter les classes et ID + inserer des data si necessaire
+          
           blocArticle.className = 'containerArticle';    
-          blocCamera.className = 'blocCamera';       
+          blocCamera.href = "produit.html?id=" + q._id;
+          blocCamera.classList.add('containerBlocCamera')
           titreCamera.className = 'titreCamera';            
           imageBoite.setAttribute('src', q.imageUrl);
           imageBoite.classList.add('cameraImg');
-          blocCamera.classList.add('containerBlocCamera')
-          blocCamera.setAttribute('href', './index.html') //Changer le link vers la page produit
+          prixCamera.classList.add('prixCamera')
+          underPic.classList.add('underPic')
 
     //mettre les data dans l'element HTML
           titreCamera.textContent = q.name;
-          
+          prixCamera.textContent = 'prix :  ' +q.price/100 + ' euros';     
+               
     //Tout ajouter dans la balise container creée sur le index.HTML
-          blocCamera.append(titreCamera, imageBoite);
+          underPic.append(titreCamera, prixCamera);
+          blocCamera.append( imageBoite,underPic);
           blocArticle.append(blocCamera);
-          bigContainer.append(blocArticle);
+          bigContainer.append( blocArticle);
           }
        }
     //Appeler la fonction qui fait tout fonctionner 
