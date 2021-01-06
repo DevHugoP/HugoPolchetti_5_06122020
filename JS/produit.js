@@ -18,21 +18,55 @@ function loadProductPage (){
 
         const bigContainer = document.getElementById('bigContainer');
 
-        // on cree ensuite les balises HTML 
+        // on crée ensuite les balises HTML avec les attributs et les classes necessaires
 
         const bigBox = document.createElement('article');
-        const frameText = document.createElement('div');
-        const imgBox = document.createElement ('img');
-        imgBox.setAttribute('src', data.imageUrl);
+        bigBox.classList.add('bigBox');
+        const sideTextBox = document.createElement('div');
+        sideTextBox.classList.add('sideTextBox');
+        const imageBox = document.createElement('div');
+        imageBox.classList.add('imageBox');
+        const underTextBox= document.createElement('div');
+        underTextBox.classList.add('underTextBox');
 
-        const selector = document.createElement('select')
+        const img = document.createElement ('img');
+        img.setAttribute('src', data.imageUrl);
+        img.classList.add('img');
+
+
+        let selector = document.createElement('select')
 
         for (let i =0; i < data.lenses.length; i++){   //on loop dans l'array 'lenses' pour creer automatiquement une balise 'option' avec la valeur dedans
             let option = document.createElement('option');
             option.textContent=data.lenses[i];
             option.value=data.lenses[i];
+            selector.append(option);
         }
 
+        
+
+        let price = document.createElement('p');
+        price = data.price/100 + ' euros';
+
+
+        let desc = document.createElement('p');
+        desc = data.description;
+        
+
+        let name = document.createElement('p');
+        name = data.name;
+
+        let button = document.createElement('button');
+        button.setAttribute('id', 'button');
+        button.classList.add('button');
+        button.textContent='Ajouter au panier';
+
+
+        underTextBox.append(desc, price, button);
+        sideTextBox.append(name, selector);
+        imageBox.append(img);
+        bigBox.append(sideTextBox,imageBox,underTextBox)
+        bigContainer.append(bigBox);
 
     }
 }

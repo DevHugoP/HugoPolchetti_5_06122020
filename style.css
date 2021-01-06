@@ -145,6 +145,46 @@ body {
   width: 30%;
 }
 
+.bigContainer{
+
+}
+.bigBox {
+  flex-direction: column;
+}
+
+.sideTextBox {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.imageBox {
+  display: flex;
+  background-color: white;
+  border-radius: 1rem 1rem 1rem 1rem;
+  box-shadow: 0 0 16px #0000002e;
+  max-width: 375px;
+
+}
+
+.underTextBox{
+  display: flex;
+  padding: 1rem;
+}
+
+.img{
+  display: flex;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  width: 100%;
+
+}
+
+.button {
+  height: 3.5rem;
+  width: 5rem;
+}
 
 
 
