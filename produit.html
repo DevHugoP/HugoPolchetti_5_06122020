@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Vente en ligne d'appareils photos vintage" />
+		<link rel="stylesheet" href="./style.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,400;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://kit.fontawesome.com/fa07b9d4dd.js" crossorigin="anonymous"></script>
+		<title>Onorico</title>
+	</head>
+	<body>
+		<header class="containerHeader">
+			<a href="./index.html"><img class="logoHeader" src="./logo.png" /></a>
+			<nav class="navBar">
+				<li class="cart">
+					<a href="./panier.html" class="fas fa-shopping-cart cartt"></a>
+					<li class="cartNumber" ><p id="cartNumber">0</p></li>
+				</li>
+			</nav>
+		</header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vente en ligne d'appareils photos vintage">
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/fa07b9d4dd.js" crossorigin="anonymous"></script>
-    <title>Onorico</title>
-</head>
-<body>
-    
+		<div id="bigContainer" class="bigContainer"></div>
 
-    <header class="containerHeader">
-        <a href="./index.html"><img class="logoHeader" src="./logo.png"></a>
-        <nav class= navBar>
-            <li class="cart"><a href="#" class="fas fa-shopping-cart cartt"></a></li>
-        </nav>
-    </header>
+		<script defer src="./JS/produit.js"></script>
 
-<div id='bigContainer' class="bigContainer"></div>
-
-<script defer src="./JS/produit.js"></script>
-
-
-
-    <footer class="footer">
-        <div class="footer__head">
-            <img src="./logo.png" alt="logo du site" class="footer__head--logo" >
-        </div>
-        <div class= footerContainer>
-            <a href="#">
-                <p class="footerContainer__box--text">Mentions légales</p>
-            </a>
-            <a href = "mailto:abc@example.com" class="footerContainer__box--text">Contact</a>
-        </div>
-    </footer>  
-</body>
+		<footer class="footer">
+			<div class="footer__head">
+				<img src="./logo.png" alt="logo du site" class="footer__head--logo" />
+			</div>
+			<div class="footerContainer">
+				<a href="#">
+					<p class="footerContainer__box--text">Mentions légales</p>
+				</a>
+				<a href="mailto:abc@example.com" class="footerContainer__box--text">Contact</a>
+			</div>
+		</footer>
+	</body>
 </html>
