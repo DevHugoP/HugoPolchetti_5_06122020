@@ -1,7 +1,7 @@
-let panierRecup = JSON.parse(localStorage.getItem("tableauObjet"));
-let cartNumber = document.getElementById("cartNumber");
-cartNumber.textContent = panierRecup.qty;
-console.log(panierRecup.qty);
+// let panierRecup = JSON.parse(localStorage.getItem("tableauObjet"));
+// let cartNumber = document.getElementById("cartNumber");
+// cartNumber.textContent = panierRecup.qty;
+// console.log(panierRecup.qty);
 
 document.addEventListener("DOMContentLoaded", () => {
 	function fetchData() {
