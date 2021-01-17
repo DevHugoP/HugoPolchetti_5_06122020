@@ -1,12 +1,8 @@
-// let panierRecup = JSON.parse(localStorage.getItem("tableauObjet"));
-// let cartNumber = document.getElementById("cartNumber");
-// cartNumber.textContent = panierRecup.qty;
-// console.log(panierRecup.qty);
-
 // localStorage.clear();
 let urlProduit = window.location.href; // recuperation de l'url avec id produit
 let idCamera = urlProduit.substr(38); // soustraction de 38 caracteres de la string href pour obtenir que l'id
 console.log(idCamera); // on crée une variable contenant uniquement l'id du produit
+let panier = JSON.parse(localStorage.getItem("cart")) || [];
 
 function loadProductPage() {
 	function fetchDatas() {
@@ -65,48 +61,26 @@ function loadProductPage() {
 		button.classList.add("button");
 		button.textContent = "Ajouter au panier";
 
-		let qty = 1;
+		let product = {
+			name: data.name,
+			id: data._id,
+			prix: data.price / 100,
+			img: data.imageUrl,
+			qty: 1
+		};
 
-		class objetCamera {
-			constructor(nom, id, prix, img, qty) {
-				(this.nom = data.name),
-					(this.id = data._id),
-					(this.prix = data.price / 100),
-					(this.img = data.imageUrl),
-					(this.qty = qty);
+		button.addEventListener("click", () => {
+			function addToCart(product) {
+				for (let i = 0; i < panier.length; i++) {
+					if (panier[i].name === product.name) {
+						panier[i].qty += product.qty;
+						return;
+					}
+				}
+				panier.push(product);
 			}
-		}
-
-		let cameraProduct = new objetCamera(
-			data.name,
-			data._id,
-			data.price / 100,
-			data.imageUrl,
-			qty
-		);
-
-		// let cameraProduct = [data.name, data._id, data.price / 100, data.imageUrl, qty];
-
-		const addToBasket = button.addEventListener("click", () => {
-			if (localStorage.getItem(data._id) === null) {
-				localStorage.setItem(data._id, JSON.stringify(cameraProduct));
-			} else if (localStorage.getItem(data._id)) {
-				cameraProduct.qty++;
-				localStorage.setItem(data._id, JSON.stringify(cameraProduct));
-			}
-
-			// let contenu = JSON.parse(localStorage.getItem(cameraProduct));
-			// if (contenu === !null) {
-			// 	contenu.qty++;
-			// } else {
-			// 	let sigma = localStorage.setItem(data._id, cameraProduct.id);
-			// 	console.log(sigma);
-			// }
-			// cameraProduct.qty++;
-			// localStorage.setItem(data._id, JSON.stringify(cameraProduct));
-			// let cartNumber = document.getElementById("cartNumber");
-			// cartNumber.textContent = cameraProduct.qty;
-			console.log(localStorage);
+			addToCart(product);
+			localStorage.setItem("cart", JSON.stringify(panier));
 		});
 
 		underTextBox.append(desc, price, button);
@@ -118,5 +92,4 @@ function loadProductPage() {
 }
 
 loadProductPage();
-
-console.log(localStorage.getItem());
+console.log(JSON.parse(localStorage.getItem("cart")));

@@ -1,5 +1,5 @@
 let insertion = document.getElementById("insertion");
-let panierRecup = JSON.parse(localStorage.getItem(data._id));
+let panierRecup = JSON.parse(localStorage.getItem("cart"));
 
 // On recupère les infos du local storage et on crée un element pour montrer le nombre d'article dans le panier (pas de refresh dynamique pour le moment)
 

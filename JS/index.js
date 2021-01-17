@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	function pageAcceuil(data) {
 		console.log(data);
 
+		// console.log(data[1]._id);
+
 		for (let q of data) {
 			//faire une loop dans le tableau json
 
