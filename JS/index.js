@@ -1,8 +1,3 @@
-// let panierRecup = JSON.parse(localStorage.getItem("tableauObjet"));
-// let cartNumber = document.getElementById("cartNumber");
-// cartNumber.textContent = panierRecup.qty;
-// console.log(panierRecup.qty);
-
 document.addEventListener("DOMContentLoaded", () => {
 	function fetchData() {
 		fetch("http://localhost:3000/api/cameras")
@@ -11,8 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 	function pageAcceuil(data) {
 		console.log(data);
-
-		// console.log(data[1]._id);
 
 		for (let q of data) {
 			//faire une loop dans le tableau json

@@ -189,14 +189,14 @@ article {
 /* // page PAnier //  */
 #insertion {
 	display: flex;
-	justify-content: space-evenly;
+	flex-direction: column;
 }
 
 .imagePanier {
 	border-radius: 1rem 1rem 1rem 1rem;
 	box-shadow: 0 0 16px #0000002e;
 	max-width: 375px;
-	height: 7rem;
+	height: 8rem;
 }
 
 .boiteText {
@@ -225,6 +225,17 @@ article {
 .prixUnite {
 	padding: 0 2rem;
 	border: 1px solid black;
+}
+
+.containerImgDesc {
+	display: flex;
+	padding: 1rem 2rem;
+	gap: 1rem;
+}
+
+.total {
+	display: flex;
+	justify-content: center;
 }
 /* 
 //  FOOTER //  */
