@@ -1,7 +1,14 @@
 // localStorage.clear();
+// RECUPERATION DE LA QTY + AFFICHAGE DU NOMBRE D'ITEM DANS L'ICONE PANIER
+function checkCartNumber() {
+	let cartItemCount = JSON.parse(localStorage.getItem("nbObjetPanier"));
+	let cartCount = document.getElementById("cartNumber");
+	cartCount.textContent = cartItemCount || "0";
+}
+checkCartNumber();
+
 let urlProduit = window.location.href; // recuperation de l'url avec id produit
 let idCamera = urlProduit.substr(38); // soustraction de 38 caracteres de la string href pour obtenir que l'id
-console.log(idCamera); // on crée une variable contenant uniquement l'id du produit
 let panier = JSON.parse(localStorage.getItem("cart")) || [];
 
 function loadProductPage() {
@@ -61,7 +68,7 @@ function loadProductPage() {
 		button.classList.add("button");
 		button.textContent = "Ajouter au panier";
 
-		let product = {
+		const product = {
 			name: data.name,
 			id: data._id,
 			prix: data.price / 100,
@@ -70,17 +77,27 @@ function loadProductPage() {
 		};
 
 		button.addEventListener("click", () => {
-			function addToCart(product) {
+			function addToCart() {
 				for (let i = 0; i < panier.length; i++) {
 					if (panier[i].name === product.name) {
-						panier[i].qty += product.qty;
+						panier[i].qty++;
 						return;
 					}
 				}
 				panier.push(product);
 			}
-			addToCart(product);
+			addToCart();
 			localStorage.setItem("cart", JSON.stringify(panier));
+			function sigmaQty() {
+				let sumQty = 0;
+				for (let i = 0; i < panier.length; i++) {
+					sumQty += panier[i].qty;
+					console.log(sumQty);
+				}
+				localStorage.setItem("nbObjetPanier", JSON.stringify(sumQty));
+			}
+			sigmaQty();
+			checkCartNumber();
 		});
 
 		underTextBox.append(desc, price, button);
@@ -92,4 +109,3 @@ function loadProductPage() {
 }
 
 loadProductPage();
-console.log(JSON.parse(localStorage.getItem("cart")));

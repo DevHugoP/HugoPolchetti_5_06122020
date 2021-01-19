@@ -1,6 +1,13 @@
+// RECUPERATION DE LA QTY + AFFICHAGE DU NOMBRE D'ITEM DANS L'ICONE PANIER
+function checkCartNumber() {
+	let cartItemCount = JSON.parse(localStorage.getItem("nbObjetPanier"));
+	let cartCount = document.getElementById("cartNumber");
+	cartCount.textContent = cartItemCount;
+}
+checkCartNumber();
+
 let insertion = document.getElementById("insertion");
 let panierRecup = JSON.parse(localStorage.getItem("cart"));
-console.log(panierRecup);
 
 // On recupère les infos du local storage et on crée un element pour montrer le nombre d'article dans le panier (pas de refresh dynamique pour le moment)
 
@@ -66,33 +73,22 @@ function creerBtn() {
 creerBtn();
 
 function totalSigma() {
-	let sum = 0;
-	for (let i = 0; i < panierRecup.length; i++) {
-		let sommeUnite = [panierRecup[i].prix * panierRecup[i].qty];
-		sum += panierRecup[i].prix * panierRecup[i].qty;
+	if (panierRecup) {
+		let sum = 0;
+		for (let i = 0; i < panierRecup.length; i++) {
+			let sommeUnite = [panierRecup[i].prix * panierRecup[i].qty];
+			sum += panierRecup[i].prix * panierRecup[i].qty;
+		}
+		let addition = document.createElement("p");
+		addition.classList.add("total");
+		addition.textContent = `Le total est de ${sum} euros.`;
+		insertion.append(addition);
 	}
-	let addition = document.createElement("p");
-	addition.classList.add("total");
-	addition.textContent = `Le total est de ${sum} euros.`;
-	insertion.append(addition);
 }
 
 totalSigma();
 
-function sigmaQty() {
-	let sumQty = 0;
-	for (let i = 0; i < panierRecup.length; i++) {
-		sumQty += panierRecup[i].qty;
-		console.log(sumQty);
-	}
-	let nbObjet = document.getElementById("cartNumber");
-	nbObjet.textContent = `${sumQty}`;
-	localStorage.setItem("nbObjetPanier", sumQty);
-}
-
-sigmaQty();
-
-// On recupère les informations dud formulaire pour les vérifier avant de les envoyer au serveur //
+// On recupère les informations du formulaire pour les vérifier avant de les envoyer au serveur //
 
 document.getElementById("prenom");
 
