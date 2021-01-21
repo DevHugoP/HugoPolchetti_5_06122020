@@ -8,7 +8,8 @@ function checkCartNumber() {
 checkCartNumber();
 
 let urlProduit = window.location.href; // recuperation de l'url avec id produit
-let idCamera = urlProduit.substr(38); // soustraction de 38 caracteres de la string href pour obtenir que l'id
+let idCamera = urlProduit.substr(44); // soustraction de 44 caracteres de la string href pour obtenir que l'id
+
 let panier = JSON.parse(localStorage.getItem("cart")) || [];
 
 function loadProductPage() {
@@ -87,12 +88,13 @@ function loadProductPage() {
 				panier.push(product);
 			}
 			addToCart();
+
 			localStorage.setItem("cart", JSON.stringify(panier));
+
 			function sigmaQty() {
 				let sumQty = 0;
 				for (let i = 0; i < panier.length; i++) {
 					sumQty += panier[i].qty;
-					console.log(sumQty);
 				}
 				localStorage.setItem("nbObjetPanier", JSON.stringify(sumQty));
 			}

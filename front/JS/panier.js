@@ -69,7 +69,6 @@ function creerBtn() {
 		insertion.append(bouttonSupr);
 	}
 }
-
 creerBtn();
 
 function totalSigma() {
@@ -85,25 +84,51 @@ function totalSigma() {
 		insertion.append(addition);
 	}
 }
-
 totalSigma();
 
-// On recupère les informations du formulaire pour les vérifier avant de les envoyer au serveur //
+//On recupère les id des produits dans le panier et on les places dans un tableau pour l'envoyer sous cette forme au serveur
+let idArray = [];
 
-document.getElementById("prenom");
+function idRecup() {
+	for (let i = 0; i < panierRecup.length; i++) {
+		idArray.push(panierRecup[i].id);
+	}
+}
+idRecup();
+console.log(idArray[0]);
+console.log(typeof idArray[0]);
 
-document.getElementById("nom");
+// On recupère les informations du formulaire pour les vérifier avant de les envoyer au serveur
 
-document.getElementById("adresse");
+let firstName = document.getElementById("prenom");
+let regexLetters = /^[a-zA-Z]+$/; //match une chaine de caractère de a-z minuscule ou majuscule sans espace ou caractères speciaux
 
-document.getElementById("ville");
+let lastName = document.getElementById("nom");
 
-document.getElementById("courriel").addEventListener("blur", function (e) {
+let address = document.getElementById("adresse");
+let regexAddress = /^[a-zA-Z0-9 ]*$/; // match des lettres minuscules majuscules des chiffres avec des espaces
+
+let city = document.getElementById("ville");
+
+let courriel = document.getElementById("courriel");
+courriel.addEventListener("blur", function (e) {
 	// Correspond à une chaîne de la forme xxx@yyy.zzz
-	var regexCourriel = /.+@.+\..+/;
-	var validiteCourriel = "";
+	let regexCourriel = /.+@.+\..+/;
+	let validiteCourriel = "";
 	if (!regexCourriel.test(e.target.value)) {
 		validiteCourriel = "Adresse invalide";
 	}
+	console.log(courriel.value);
 	document.getElementById("aideCourriel").textContent = validiteCourriel;
 });
+//on push les informations personelles entrées via le formulaire dans l'objet CONTACT
+let contact = {};
+
+contact.firstName = firstName.value;
+contact.lastName = lastName.value;
+contact.address = address.value;
+contact.city = city.value;
+contact.email = courriel.value;
+console.log(contact);
+
+// créer la route POST pour envoyer les informations récupérées dans le tableau + objet

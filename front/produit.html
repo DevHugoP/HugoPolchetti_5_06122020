@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Vente en ligne d'appareils photos vintage" />
-		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="../front/style.css " />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,400;1,700;1,900&display=swap"
 			rel="stylesheet"
@@ -14,27 +14,28 @@
 			rel="stylesheet"
 		/>
 		<script src="https://kit.fontawesome.com/fa07b9d4dd.js" crossorigin="anonymous"></script>
-		<title>Orinoco - Acceuil -</title>
+		<title>Onorico</title>
 	</head>
 	<body>
 		<header class="containerHeader">
-			<a href="./index.html"><img class="logoHeader" src="./logo.png" /></a>
+			<a href="./index.html"><img class="logoHeader" src="../front/logo.png" /></a>
 			<nav class="navBar">
 				<li class="cart">
 					<a href="./panier.html" class="fas fa-shopping-cart cartt"></a>
+					<li class="cartNumber" ><p id="cartNumber">0</p></li>
 				</li>
-				<li class="cartNumber"><p id="cartNumber">0</p></li>
 			</nav>
 		</header>
 
-		<div class="fondGris">
-			<h1 class="bigTitle">Orinoco Cameras</h1>
-			<div class="bigContainer"></div>
-		</div>
+		<div id="bigContainer" class="bigContainer"></div>
+
+
+
+		
 
 		<footer class="footer">
 			<div class="footer__head">
-				<a href="./index.html" class="footlogo"><img src="./logo.png" /></a>
+				<img src="../front/logo.png" alt="logo du site" class="footer__head--logo" />
 			</div>
 			<div class="footerContainer">
 				<a href="#">
@@ -43,7 +44,6 @@
 				<a href="mailto:abc@example.com" class="footerContainer__box--text">Contact</a>
 			</div>
 		</footer>
-
-		<script defer src="./JS/index.js"></script>
+		<script defer src="../front/JS/produit.js"></script>
 	</body>
 </html>
