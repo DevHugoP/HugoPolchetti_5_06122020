@@ -1,0 +1,304 @@
+body {
+	margin: auto;
+	font-family: "Roboto", sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+html {
+	size: 100%;
+	font-family: "Roboto";
+}
+
+.containerHeader {
+	padding: 0rem 1rem;
+	display: flex;
+}
+
+.logoHeader {
+	display: flex;
+	width: 8rem;
+	height: 2.9rem;
+	padding-left: 4rem;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	background-color: #f3e9f1;
+}
+
+.navBar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+li {
+	display: flex;
+	list-style-type: none;
+	padding: 8px 10px 8px;
+	margin: 8px 10px 8px;
+	width: 30%;
+}
+article {
+	display: flex;
+	list-style-type: none;
+	padding: 8px 10px 8px;
+	margin: 8px 10px 8px;
+	width: 30%;
+}
+
+.cartNumber {
+	margin: 0;
+	padding: 0;
+}
+
+.cart:hover .cartt {
+	color: blueviolet;
+}
+
+.product:hover {
+	color: blueviolet;
+}
+
+.background {
+	background-color: #f5f5f5;
+}
+
+.bigContainer {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 2rem 1rem;
+	padding: 2rem 1rem 3rem 1rem;
+	background-color: #f5f5f5;
+}
+.fondGris {
+	background-color: #f5f5f5;
+	margin: 0;
+}
+.bigTitle {
+	margin: 0;
+	background-color: #f5f5f5;
+	display: flex;
+	padding: 2rem 3rem;
+}
+.cameraImg {
+	height: 15rem;
+	object-fit: cover;
+	border-radius: 1rem 1rem 0 0;
+	width: 100%;
+	object-position: bottom;
+}
+
+.underPic {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.prixCamera {
+	margin-right: 1.5rem;
+}
+
+.containerBlocCamera {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	border-radius: 1rem 1rem 1rem 1rem;
+	box-shadow: 0 0 16px #0000002e;
+	max-width: 375px;
+}
+
+.titreCamera {
+	padding-left: 2rem;
+}
+
+.formulaire {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 3rem;
+}
+#commander {
+	height: 35px;
+	width: 300px;
+	justify-content: center;
+	align-items: center;
+}
+
+.boxPanier {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.panierContainer {
+	display: flex;
+	flex-direction: column;
+}
+.panierTitle {
+	font-size: 1.5rem;
+}
+.itemContainer {
+	width: 600px;
+	height: 200px;
+	border: 1px solid black;
+}
+
+.cellule {
+	width: 30%;
+}
+.bigContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bigBox {
+	display: flex;
+	flex-direction: column;
+}
+
+.sideTextBox {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+}
+
+.underTextBox {
+	display: flex;
+	padding: 1.5rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.img {
+	display: flex;
+	height: 20rem;
+	object-fit: cover;
+	border-radius: 1rem 1rem 1rem 1rem;
+	width: 100%;
+}
+
+.button {
+	height: 3.5rem;
+	width: 5rem;
+}
+
+.price {
+	padding: 3rem;
+}
+
+.desc {
+	font-size: 1rem;
+}
+
+/* // page PAnier //  */
+#insertion {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.imagePanier {
+	border-radius: 1rem 1rem 1rem 1rem;
+	box-shadow: 0 0 16px #0000002e;
+	max-width: 375px;
+	height: 8rem;
+}
+
+.boiteText {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nomCamera {
+	padding: 0 3rem;
+	border: 1px solid black;
+}
+.qty {
+	padding: 0 2rem;
+	border: 1px solid black;
+}
+.idText {
+	padding: 0 2rem;
+	border: 1px solid black;
+}
+
+.somme {
+	padding: 0 2rem;
+	border: 1px solid black;
+}
+
+.prixUnite {
+	padding: 0 2rem;
+	border: 1px solid black;
+}
+
+.containerImgDesc {
+	display: flex;
+	padding: 1rem 2rem;
+	gap: 1rem;
+}
+
+.total {
+	padding: 0.5rem;
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+}
+
+.suprBtn {
+	height: 35px;
+	width: 300px;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 
+//  FOOTER //  */
+
+.footer {
+	background-color: #f3e9f1;
+	flex-direction: column;
+}
+.footer__head {
+	margin-bottom: 0.6rem;
+}
+.footer__head--logo {
+	width: 33%;
+	max-width: 7rem;
+}
+
+.footerContainer {
+	display: flex;
+	flex-direction: column;
+	line-height: 0.9rem;
+}
+.footerContainer__box--text {
+	margin: 0.3rem;
+	font-size: 0.97rem;
+}
+.footerContainer__box--text:hover {
+	text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+	.footer {
+		text-align: center;
+	}
+
+	.footerContainer {
+		align-items: center;
+	}
+}
+
+.footlogo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
