@@ -1,11 +1,3 @@
-// RECUPERATION DE LA QTY + AFFICHAGE DU NOMBRE D'ITEM DANS L'ICONE PANIER
-function checkCartNumber() {
-	let cartItemCount = JSON.parse(localStorage.getItem("nbObjetPanier"));
-	let cartCount = document.getElementById("cartNumber");
-	cartCount.textContent = cartItemCount;
-}
-checkCartNumber();
-
 let insertion = document.getElementById("insertion");
 let panierRecup = JSON.parse(localStorage.getItem("cart"));
 
@@ -75,7 +67,6 @@ function totalSigma() {
 	if (panierRecup) {
 		let sum = 0;
 		for (let i = 0; i < panierRecup.length; i++) {
-			let sommeUnite = [panierRecup[i].prix * panierRecup[i].qty];
 			sum += panierRecup[i].prix * panierRecup[i].qty;
 		}
 		let addition = document.createElement("p");
