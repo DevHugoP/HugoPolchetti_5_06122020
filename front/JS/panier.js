@@ -77,29 +77,47 @@ function totalSigma() {
 }
 totalSigma();
 
-//On recupère les id des produits dans le panier et on les places dans un tableau pour l'envoyer sous cette forme au serveur
-let idArray = [];
-
-function idRecup() {
-	for (let i = 0; i < panierRecup.length; i++) {
-		idArray.push(panierRecup[i].id);
-	}
-}
-idRecup();
-console.log(idArray[0]);
-console.log(typeof idArray[0]);
-
 // On recupère les informations du formulaire pour les vérifier avant de les envoyer au serveur
 
 let firstName = document.getElementById("prenom");
-let regexLetters = /^[a-zA-Z]+$/; //match une chaine de caractère de a-z minuscule ou majuscule sans espace ou caractères speciaux
+firstName.addEventListener("blur", function (e) {
+	let regexLetters = /^[a-zA-Z]+$/; //match une chaine de caractère de a-z minuscule ou majuscule sans espace ou caractères speciaux
+	let aideForm1 = "";
+	if (!regexLetters.test(e.target.value)) {
+		aideForm1 = "entrée invalide ";
+	}
+	document.getElementById("aideForm1").textContent = aideForm1;
+});
 
 let lastName = document.getElementById("nom");
+lastName.addEventListener("blur", function (e) {
+	let regexLetters = /^[a-zA-Z]+$/; //match une chaine de caractère de a-z minuscule ou majuscule sans espace ou caractères speciaux
+	let aideForm2 = "";
+	if (!regexLetters.test(e.target.value)) {
+		aideForm2 = "entrée invalide ";
+	}
+	document.getElementById("aideForm2").textContent = aideForm2;
+});
 
 let address = document.getElementById("adresse");
-let regexAddress = /^[a-zA-Z0-9 ]*$/; // match des lettres minuscules majuscules des chiffres avec des espaces
+address.addEventListener("blur", function (e) {
+	let regexAddress = /^[a-zA-Z0-9 ]*$/; // match des lettres minuscules majuscules des chiffres avec des espaces
+	let aideForm3 = "";
+	if (!regexAddress.test(e.target.value)) {
+		aideForm3 = "entrée invalide ";
+	}
+	document.getElementById("aideForm3").textContent = aideForm3;
+});
 
 let city = document.getElementById("ville");
+city.addEventListener("blur", function (e) {
+	let regexLetters = /^[a-zA-Z]+$/; //match une chaine de caractère de a-z minuscule ou majuscule sans espace ou caractères speciaux
+	let aideForm4 = "";
+	if (!regexLetters.test(e.target.value)) {
+		aideForm4 = "entrée invalide ";
+	}
+	document.getElementById("aideForm4").textContent = aideForm4;
+});
 
 let courriel = document.getElementById("courriel");
 courriel.addEventListener("blur", function (e) {
@@ -121,5 +139,17 @@ contact.address = address.value;
 contact.city = city.value;
 contact.email = courriel.value;
 console.log(contact);
+
+//On recupère les id des produits dans le panier et on les places dans un tableau pour l'envoyer sous cette forme au serveur
+let idArray = [];
+
+function idRecup() {
+	for (let i = 0; i < panierRecup.length; i++) {
+		idArray.push(panierRecup[i].id);
+	}
+}
+idRecup();
+console.log(idArray[0]);
+console.log(typeof idArray[0]);
 
 // créer la route POST pour envoyer les informations récupérées dans le tableau + objet
