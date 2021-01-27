@@ -2,12 +2,5 @@ POST http://localhost:3000/api/cameras/order
 Content-Type: application/json
 
 {
-    "contact": {
-        "firstName": "hugo", 
-        "lastName": "hugo", 
-        "email": "hugo", 
-        "address": "hugo", 
-        "city": "hugo"
-    },
-    "products": ["5be1ef211c9d44000030b062"]
+
 }
