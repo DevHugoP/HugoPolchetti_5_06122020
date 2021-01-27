@@ -63,19 +63,17 @@ function creerBtn() {
 }
 creerBtn();
 
-function totalSigma() {
-	if (panierRecup) {
-		let sum = 0;
-		for (let i = 0; i < panierRecup.length; i++) {
-			sum += panierRecup[i].prix * panierRecup[i].qty;
-		}
-		let addition = document.createElement("p");
-		addition.classList.add("total");
-		addition.textContent = `Le total est de ${sum} euros.`;
-		insertion.append(addition);
+let sum = 0;
+
+if (panierRecup) {
+	for (let i = 0; i < panierRecup.length; i++) {
+		sum += panierRecup[i].prix * panierRecup[i].qty;
 	}
+	let addition = document.createElement("p");
+	addition.classList.add("total");
+	addition.textContent = `Le total est de ${sum} euros.`;
+	insertion.append(addition);
 }
-totalSigma();
 
 // FORMULAIRE // (les patterns de vérification des input sont dans panier.HTML)
 
@@ -99,6 +97,8 @@ document.getElementById("formulaire").addEventListener("submit", function (envoi
 			city: city.value,
 			email: courriel.value
 		};
+
+		console.log(firstName.value);
 		//On recupère les id des produits dans le panier et on les places dans un tableau pour l'envoyer sous cette forme au serveur
 
 		let idProducts = [];
@@ -115,13 +115,16 @@ document.getElementById("formulaire").addEventListener("submit", function (envoi
 			contact: contact,
 			products: idProducts
 		};
-		console.log(data);
 		fetch("http://localhost:3000/api/cameras/order", {
 			body: JSON.stringify(data),
 			headers: { "Content-type": "application/json;charset=utf-8" },
 			method: "POST"
 		})
 			.then((response) => response.json())
-			.then((json) => console.log(json));
+			.then(function (backData) {
+				console.log(backData);
+				window.location = `./confirmation.html?id=${backData.orderId}&name=${firstName.value}&prix=${sum}`;
+			});
+		localStorage.clear();
 	}
 });
