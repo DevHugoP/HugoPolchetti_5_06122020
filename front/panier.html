@@ -27,26 +27,40 @@
 
 		<div id="insertion"></div>
 
-		<form class="formulaire">
+		<form id="formulaire">
 			<h2>Informations Personnelles</h2>
 			<p>
 				<label for="prenom">Prenom</label> :
-				<input type="text" name="prenom" id="prenom" required />
+				<input
+					type="text"
+					name="prenom"
+					pattern="^[a-zA-Z]+$"
+					title="pas de chiffre ou caractères spéciaux"
+					id="prenom"
+					required
+				/>
 				<span id="aideForm1"></span>
 			</p>
 			<p>
-				<label for="nom">Nom</label> :
-				<input type="text" name="nom" id="nom" required />
+				<label for="nom">Nom</label>
+				<input
+					type="text"
+					name="nom"
+					pattern="^[a-zA-Z]+$"
+					title="pas de chiffre ou caractères spéciaux"
+					id="nom"
+					required
+				/>
 				<span id="aideForm2"></span>
 			</p>
 			<p>
 				<label for="adresse">Adresse</label> :
-				<input type="text" name="adresse" id="adresse" required />
+				<input type="text" name="adresse" pattern="^[a-zA-Z0-9 ]*$" id="adresse" required />
 				<span id="aideForm3"></span>
 			</p>
 			<p>
 				<label for="ville">Ville</label> :
-				<input type="text" name="ville" id="ville" required />
+				<input type="text" name="ville" pattern="^[a-zA-Z0-9 ']*$" id="ville" required />
 				<span id="aideForm4"></span>
 			</p>
 			<p>
@@ -54,6 +68,8 @@
 				<input
 					type="email"
 					name="courriel"
+					pattern=".+@.+\..+"
+					title=" format = xxx@yyy.zzz"
 					id="courriel"
 					required
 					placeholder="utilisateur@domaine.fr"
@@ -77,6 +93,6 @@
 		</footer>
 
 		<script defer src="../front/JS/panier.js"></script>
-		<script src="./JS/checkNumber.js"></script>
+		<script src="../JS/checkNumber.js"></script>
 	</body>
 </html>

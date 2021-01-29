@@ -63,93 +63,68 @@ function creerBtn() {
 }
 creerBtn();
 
-function totalSigma() {
-	if (panierRecup) {
-		let sum = 0;
-		for (let i = 0; i < panierRecup.length; i++) {
-			sum += panierRecup[i].prix * panierRecup[i].qty;
-		}
-		let addition = document.createElement("p");
-		addition.classList.add("total");
-		addition.textContent = `Le total est de ${sum} euros.`;
-		insertion.append(addition);
-	}
-}
-totalSigma();
+let sum = 0;
 
-// On recupère les informations du formulaire pour les vérifier avant de les envoyer au serveur
-
-let firstName = document.getElementById("prenom");
-firstName.addEventListener("blur", function (e) {
-	let regexLetters = /^[a-zA-Z]+$/; //match une chaine de caractère de a-z minuscule ou majuscule sans espace ou caractères speciaux
-	let aideForm1 = "";
-	if (!regexLetters.test(e.target.value)) {
-		aideForm1 = "entrée invalide ";
-	}
-	document.getElementById("aideForm1").textContent = aideForm1;
-});
-
-let lastName = document.getElementById("nom");
-lastName.addEventListener("blur", function (e) {
-	let regexLetters = /^[a-zA-Z]+$/; //match une chaine de caractère de a-z minuscule ou majuscule sans espace ou caractères speciaux
-	let aideForm2 = "";
-	if (!regexLetters.test(e.target.value)) {
-		aideForm2 = "entrée invalide ";
-	}
-	document.getElementById("aideForm2").textContent = aideForm2;
-});
-
-let address = document.getElementById("adresse");
-address.addEventListener("blur", function (e) {
-	let regexAddress = /^[a-zA-Z0-9 ]*$/; // match des lettres minuscules majuscules des chiffres avec des espaces
-	let aideForm3 = "";
-	if (!regexAddress.test(e.target.value)) {
-		aideForm3 = "entrée invalide ";
-	}
-	document.getElementById("aideForm3").textContent = aideForm3;
-});
-
-let city = document.getElementById("ville");
-city.addEventListener("blur", function (e) {
-	let regexLetters = /^[a-zA-Z]+$/; //match une chaine de caractère de a-z minuscule ou majuscule sans espace ou caractères speciaux
-	let aideForm4 = "";
-	if (!regexLetters.test(e.target.value)) {
-		aideForm4 = "entrée invalide ";
-	}
-	document.getElementById("aideForm4").textContent = aideForm4;
-});
-
-let courriel = document.getElementById("courriel");
-courriel.addEventListener("blur", function (e) {
-	// Correspond à une chaîne de la forme xxx@yyy.zzz
-	let regexCourriel = /.+@.+\..+/;
-	let validiteCourriel = "";
-	if (!regexCourriel.test(e.target.value)) {
-		validiteCourriel = "Adresse invalide";
-	}
-	console.log(courriel.value);
-	document.getElementById("aideCourriel").textContent = validiteCourriel;
-});
-//on push les informations personelles entrées via le formulaire dans l'objet CONTACT
-let contact = {};
-
-contact.firstName = firstName.value;
-contact.lastName = lastName.value;
-contact.address = address.value;
-contact.city = city.value;
-contact.email = courriel.value;
-console.log(contact);
-
-//On recupère les id des produits dans le panier et on les places dans un tableau pour l'envoyer sous cette forme au serveur
-let idArray = [];
-
-function idRecup() {
+if (panierRecup) {
 	for (let i = 0; i < panierRecup.length; i++) {
-		idArray.push(panierRecup[i].id);
+		sum += panierRecup[i].prix * panierRecup[i].qty;
 	}
+	let addition = document.createElement("p");
+	addition.classList.add("total");
+	addition.textContent = `Le total est de ${sum} euros.`;
+	insertion.append(addition);
 }
-idRecup();
-console.log(idArray[0]);
-console.log(typeof idArray[0]);
 
-// créer la route POST pour envoyer les informations récupérées dans le tableau + objet
+// FORMULAIRE // (les patterns de vérification des input sont dans panier.HTML)
+
+document.getElementById("formulaire").addEventListener("submit", function (envoi) {
+	envoi.preventDefault();
+
+	if (panierRecup === null) {
+		alert("le panier est vide");
+	} else {
+		let firstName = document.getElementById("prenom");
+		let lastName = document.getElementById("nom");
+		let address = document.getElementById("adresse");
+		let city = document.getElementById("ville");
+		let courriel = document.getElementById("courriel");
+
+		//on push les informations personelles entrées via le formulaire dans l'objet CONTACT
+		let contact = {
+			firstName: firstName.value,
+			lastName: lastName.value,
+			address: address.value,
+			city: city.value,
+			email: courriel.value
+		};
+
+		console.log(firstName.value);
+		//On recupère les id des produits dans le panier et on les places dans un tableau pour l'envoyer sous cette forme au serveur
+
+		let idProducts = [];
+
+		function idRecup() {
+			for (let i = 0; i < panierRecup.length; i++) {
+				idProducts.push(panierRecup[i].id);
+			}
+		}
+		idRecup();
+
+		// créer la route POST pour envoyer les informations récupérées dans le tableau + objet
+		const data = {
+			contact: contact,
+			products: idProducts
+		};
+		fetch("http://localhost:3000/api/cameras/order", {
+			body: JSON.stringify(data),
+			headers: { "Content-type": "application/json;charset=utf-8" },
+			method: "POST"
+		})
+			.then((response) => response.json())
+			.then((backData) => {
+				console.log(backData);
+				window.location = `./confirmation.html?id=${backData.orderId}&name=${firstName.value}&prix=${sum}`;
+			});
+		localStorage.clear();
+	}
+});
