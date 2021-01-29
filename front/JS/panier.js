@@ -121,7 +121,7 @@ document.getElementById("formulaire").addEventListener("submit", function (envoi
 			method: "POST"
 		})
 			.then((response) => response.json())
-			.then(function (backData) {
+			.then((backData) => {
 				console.log(backData);
 				window.location = `./confirmation.html?id=${backData.orderId}&name=${firstName.value}&prix=${sum}`;
 			});

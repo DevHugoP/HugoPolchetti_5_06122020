@@ -1,5 +1,5 @@
 let urlProduit = window.location.href; // recuperation de l'url avec id produit
-const testSplit = urlProduit.split("=");
+const testSplit = urlProduit.split("="); // séparation du string URL en deux à partir du caractère '=' et récupération de l'id
 idCamera = testSplit[1];
 let panier = JSON.parse(localStorage.getItem("cart")) || [];
 
